@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+</head>
+
+<body>
+	<h3>Login Page</h3>
+	<p th:if="${param.error}" th:text="${session['error']}"></p>
+	<p th:if="${param.success}" th:text="${session['success']}"></p>
+</body>
+
+</html>

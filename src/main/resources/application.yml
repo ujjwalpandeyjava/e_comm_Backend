@@ -1,0 +1,96 @@
+server:
+ port: 8082
+#logging:
+  #level:
+   #.: ALL # Default - TRACE
+   #com.example: ERROR #Specific package or class, 
+spring:
+ #application:
+  #name: app_user_app
+ #config:
+  #activate:
+   #on-profile: dev
+ profiles:
+  active: dev # Set the default active profile (optional)
+ main:
+  banner-mode: "off" # Disables the Spring Boot banner displayed on startup.
+
+---
+spring:
+ devtools:
+  restart:
+   enabled: true
+ config:
+  activate:
+   on-profile: dev
+# Properties specific to the dev profile
+ datasource:
+  url: jdbc:mysql://localhost:3306/dev
+  username: root
+  password: Goldenstar@123
+  driver-class-name: com.mysql.cj.jdbc.Driver
+ jpa:
+  show-sql: true
+  hibernate:
+   transaction:
+    jta:
+     #platform: org.hibernate.service.jta.platform.internal.BitronixJtaPlatform
+   ddl-auto: update
+ security:
+  user:
+   name: user
+   password: password
+   roles: ADMIN
+  oauth2:
+   client:
+    registration:
+     google:
+      client-id: 852560245449-07uajfkd44cb7cc06f6knspps4e5anq2.apps.googleusercontent.com
+      client-secret: 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
+      scope:
+       - email
+       - profile
+     github:
+      client-id: bbf5a8c0a34a64c1a23a
+      client-secret: 455910fc9a5e5fb469f1c8491f4e2af735c26748
+  cors:
+   configuration-source:
+    id: corsConfigSource #bean method name
+---
+spring:
+ devtools:
+  restart:
+   enabled: true
+ config:
+  activate:
+   on-profile: prod
+# Properties specific to the dev profile
+ datasource:
+  url: jdbc:mysql://localhost:3306/e_comm
+  username: root
+  password: Goldenstar@123
+  driver-class-name: com.mysql.cj.jdbc.Driver
+ jpa:
+  show-sql: true
+  hibernate:
+   ddl-auto: update
+ security:
+  oauth2:
+   client:
+    registration:
+     google:
+      client-id: 852560245449-07uajfkd44cb7cc06f6knspps4e5anq2.apps.googleusercontent.com
+      client-secret: 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
+      scope:
+       - email
+       - profile
+     github:
+      client-id: bbf5a8c0a34a64c1a23a
+      client-secret: 455910fc9a5e5fb469f1c8491f4e2af735c26748
+  cors:
+   configuration-source:
+    id: corsConfigSource #bean method name
+  user:
+   name: user
+   password: password
+   roles: USER

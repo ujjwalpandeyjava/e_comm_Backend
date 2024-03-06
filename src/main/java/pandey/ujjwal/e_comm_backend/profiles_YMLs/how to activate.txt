@@ -1,0 +1,25 @@
+There are several ways to activate a profile in Spring Boot:
+
+1. **Programmatically**: 
+	You can programmatically set active profiles by calling `SpringApplication.setAdditionalProfiles(...)` before your application runs. It's also possible to activate profiles using Spring’s `ConfigurableEnvironment` interface.
+
+2. **Using a Property**: 
+	The `spring.profiles.active` is a standard property that Spring Boot will pick up automatically to activate a profile. Pass the profile name to this property value to activate that profile. If you want to activate multiple profiles then you can pass comma-separated names of those profiles.
+
+3. **Using an Environment Variable**: 
+	You can set an environment variable named `SPRING_PROFILES_ACTIVE` to specify which profiles are active¹.
+
+4. **Using a Command Line Argument**: 
+	When starting your application, you can use a command line argument to specify the active profiles, like so: `--spring.profiles.active=dev,hsqldb`¹.
+
+5. **Using the `@Profile` Annotation**: 
+	You can use the `@Profile` annotation on your configuration classes or methods to indicate they should be used only when a certain profile or profiles are active¹.
+
+The last profile added gets the highest precedence.
+
+Source: Conversation with Bing, 11/10/2023
+(1) Spring Profiles | Baeldung. https://www.baeldung.com/spring-profiles.
+(2) How to Use Profiles in Spring Boot - DZone. https://dzone.com/articles/spring-boot-profiles-1.
+(3) Guide to Spring Boot Profiles - HowToDoInJava. https://howtodoinjava.com/spring-boot/spring-profiles/.
+(4) 25. Profiles - Spring | Home. https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-profiles.html.
+(5) 22. Profiles - Spring | Home. https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html.
