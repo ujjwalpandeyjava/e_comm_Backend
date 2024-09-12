@@ -1,9 +1,10 @@
 # e_comm_backend
-
- ## Libraries
- 	Spring boot
- 	Spring MVC
- 	Spring Security
+ ## Libraries Tech
+	0. Java
+	1. Spring boot
+	2. Spring MVC
+	3. Spring Security
+	4. Java Dev-tools
 
  ## Features
   	Encrypted password
